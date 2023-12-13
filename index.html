@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .data{border: 2px solid black;width: 700px;height:440px ;background-color: rgb(161, 192, 182);position: absolute;top: 120px;left: 600px;border-radius:16px;overflow: scroll;}
+        #datas{border: 1px solid black;width: 200px;background-color: rgb(231, 46, 46);height: 100px;border-radius: 10px;float: left;}
+    </style>
+</head>
+<body style="background-color: rgb(5, 5, 5);">
+    <center><h1 style="color: aliceblue;">FORM VALIDATIONS</h1></center>
+    <h2 style="color: rgb(20, 105, 233);margin-left: 180px;">LOGIN</h2>
+    <h2 style="color: rgb(6, 128, 235);position: absolute;top:61px;left: 850px;">LOGIN-DETAILS</h2>
+    <div style="border: 2px solid black;width: 420px;height: 440px;text-align:center;background-color: rgb(121, 204, 204);border-radius: 16px;position: absolute;top: 120px;left: 20px;">
+        <form action="">
+        <p style="font-size:20px;">Firstname</p><input type="text" value="hello"> <br> <br>
+        <p style="font-size:20px;">Lastname</p><input type="text"> <br> <br>
+         <p style="font-size:20px;">Email-Id</p><input type="text" name="" id="">
+         <p style="font-size:20px;">Password</p><input type="text"> <br> <br>
+        <input type="submit" value="Submit" style="background-color: rgb(179, 115, 115);padding: 8px 19px;font-size: 20px;">
+
+
+        </form>
+    </div>
+
+    <div class="data">
+    </div>
+
+    <script>    
+    var formss=document.forms;
+    formss[0].addEventListener('submit',(e)=>{
+        e.preventDefault();
+        Firstname=e.target[0].value
+        Lastname=e.target[1].value
+        EmailId=e.target[2].value
+        Password=e.target[3].value
+        a=[]
+        a.push({firstname:Firstname,lastname:Lastname,emailid:EmailId,password:Password})
+        console.log(a);
+        a.map((val,ind,arr)=>{
+        
+        var divv=document.getElementsByClassName("data");
+        var divv1=document.createElement("div");
+        var ul1=document.createElement("ul");
+        var li1=document.createElement("li");
+        var li2=document.createElement("li");
+        var li3=document.createElement("li");
+        var li4=document.createElement("li");
+        li1.innerText=val.firstname
+        li2.innerText=val.lastname
+        li3.innerText=val.emailid
+        li4.innerText=val.password
+        ul1.appendChild(li1);
+        ul1.appendChild(li2);
+        ul1.appendChild(li3);
+        ul1.appendChild(li4);
+        divv1.appendChild(ul1);
+        divv1.setAttribute("id","datas");
+        divv1.style.margin="20px 0 0 18px"
+        divv[0].appendChild(divv1);
+        
+    })
+
+        e.target[0].value=""
+        e.target[1].value=""
+        e.target[2].value=""
+        e.target[3].value=""
+        
+     } )
+
+    
+var a=15;
+var b=50;
+
+if(b>a){
+    c=[];
+    for(i=1;i<=b;i++){
+        if(b%i==0){
+            c.push(i);
+           
+        }
+    }
+    console.log(c);
+}
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
